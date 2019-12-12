@@ -1,12 +1,15 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Opstartscherm {
     public static void main(String[] args) {
         Vragen objectVragen = new Vragen();
+        Random rand = new Random();
         String naamGebruiker;
         int keuze;
         int keuzevak;
         int j = 0;
+        int punten = 0;
+        int aantalVragenGesteld = 0;
         Scanner input = new Scanner(System.in);
         System.out.print("Geef je naam: ");
         naamGebruiker = input.nextLine();
@@ -25,7 +28,7 @@ public class Opstartscherm {
                      //Declaratie Invoer
                      String nieuweVraag;
                      String nieuwAntwoord;
-                     String Doorgaan;
+                     String doorgaan;
                      // GEGEVENS INVOEREN
                      System.out.println("Voor welk vak wens je gegevens in te geven?");
                      System.out.println("\t1.Frans");
@@ -43,8 +46,8 @@ public class Opstartscherm {
                                  nieuwAntwoord = input.next();
                                  objectVragen.antwoordenFrans.add(nieuwAntwoord);
                                  System.out.println("Wil je nog een vraag ingeven voor het vak Frans? (J/N)");
-                                 Doorgaan = input.next();
-                             } while (Doorgaan.equals("J") || Doorgaan.equals("j"));
+                                 doorgaan = input.next();
+                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
                              break;
                          case 2:
                              //Programmeren invoeren
@@ -56,8 +59,8 @@ public class Opstartscherm {
                                  nieuwAntwoord = input.next();
                                  objectVragen.antwoordenProgrammeren.add(nieuwAntwoord);
                                  System.out.println("Wil je nog een vraag ingeven voor het vak Programmeren? (J/N)");
-                                 Doorgaan = input.next();
-                             } while (Doorgaan.equals("J") || Doorgaan.equals("j"));
+                                 doorgaan = input.next();
+                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
                              break;
                          case 3:
                              //Statistiek Toevoegen
@@ -69,8 +72,8 @@ public class Opstartscherm {
                                  nieuwAntwoord = input.next();
                                  objectVragen.antwoordenStatistiek.add(nieuwAntwoord);
                                  System.out.println("Wil je nog een vraag ingeven voor het vak Statistiek? (J/N)");
-                                 Doorgaan = input.next();
-                             } while (Doorgaan.equals("J") || Doorgaan.equals("j"));
+                                 doorgaan = input.next();
+                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
                              break;
                          default:
                              //StandaardCase
@@ -82,20 +85,64 @@ public class Opstartscherm {
                  case 2:
                      // TEST AFNEMEN
                      i++;
+                     int aantalVragen;
+                     String antwoord;
                      System.out.println("Voor welk vak wil je vragen beantwoorden?");
                      System.out.println("\t1.Frans");
                      System.out.println("\t2.Programmeren");
                      System.out.println("\t3.Statistiek");
                      keuzevak = input.nextInt();
+                     System.out.println("Hoeveel vragen wil je?");
+                     aantalVragen = input.nextInt();
                      switch (keuzevak) {
                          case 1:
-                             System.out.println("Vraag voor Frans");
+                             //Vragen Frans
+
+                             for( int k = 0 ; k < aantalVragen ; k++){
+                                 aantalVragenGesteld +=1;
+                                 int random = rand.nextInt(objectVragen.vragenFrans.size());
+                                 System.out.println(objectVragen.vragenFrans.get(random));
+                                 antwoord = input.next();
+                                 if(objectVragen.antwoordenFrans.get(random).equals(antwoord)){
+                                     punten += 1;
+                                     System.out.println("Correct!");
+                                 }else{
+                                     System.out.println("Jammer, dat is fout.");
+                                 }
+                             }
+
                              break;
                          case 2:
-                             System.out.println("Vraag voor Programming");
+                             //Vragen Programmeren
+
+                             for( int k = 0 ; k < aantalVragen ; k++){
+                                 aantalVragenGesteld +=1;
+                                 int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
+                                 System.out.println(objectVragen.vragenProgrammeren.get(random));
+                                 antwoord = input.next();
+                                 if(objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)){
+                                     punten += 1;
+                                     System.out.println("Correct!");
+                                 }else{
+                                     System.out.println("Jammer, dat is fout.");
+                                 }
+                             }
                              break;
                          case 3:
-                             System.out.println("Vraag voor Statistiek");
+                             //Vragen Statistiek
+
+                             for( int k = 0 ; k < aantalVragen ; k++){
+                                 aantalVragenGesteld +=1;
+                                 int random = rand.nextInt(objectVragen.vragenStatistiek.size());
+                                 System.out.println(objectVragen.vragenStatistiek.get(random));
+                                 antwoord = input.next();
+                                 if(objectVragen.antwoordenStatistiek.get(random).equals(antwoord)){
+                                     punten += 1;
+                                     System.out.println("Correct!");
+                                 }else{
+                                     System.out.println("Jammer, dat is fout.");
+                                 }
+                             }
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
@@ -105,9 +152,10 @@ public class Opstartscherm {
                      //Afsluiten
                      j++;
                      i++;
+                     System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
                      break;
                  default:
-                     System.out.println("Ongeldige invoer, het getal kan enkel 1 of 2 zijn.");
+                     System.out.println("Ongeldige invoer, het getal kan enkel 1, 2 of 3 zijn.");
                      System.out.println("Wat wil je gaan doen?");
                      System.out.println("\t1.Gegevens invoeren");
                      System.out.println("\t2.Test afnemen");
