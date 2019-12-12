@@ -6,7 +6,6 @@ public class Opstartscherm {
         String naamGebruiker;
         int keuze;
         int keuzevak;
-        int i = 0;
         int j = 0;
         Scanner input = new Scanner(System.in);
         System.out.print("Geef je naam: ");
@@ -17,7 +16,7 @@ public class Opstartscherm {
          System.out.println("\t1.Gegevens invoeren");
          System.out.println("\t2.Test afnemen");
          System.out.println("\t3.Afsluiten");
-
+        int i = 0;
          do {
              keuze = input.nextInt();
              switch (keuze) {
