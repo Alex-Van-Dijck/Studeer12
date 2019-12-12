@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Opstartscherm {
     public static void main(String[] args) {
+        Vragen objectVragen = new Vragen();
         String naamGebruiker;
         int keuze;
         int keuzevak;
@@ -19,9 +20,43 @@ public class Opstartscherm {
             switch (keuze) {
                 case 1:
                     i++;
+                    //Declaratie Invoer
+                    String nieuweVraag;
+                    String nieuwAntwoord;
+                    String Doorgaan;
                     // GEGEVENS INVOEREN
+                    System.out.println("Voor welk vak wens je gegevens in te geven?");
+                    System.out.println("\t1.Frans");
+                    System.out.println("\t2.Programmeren");
+                    System.out.println("\t3.Statistiek");
+                    keuzevak = input.nextInt();
+                    switch (keuzevak){
+                        case 1:
+                            //Frans invoeren
+                            do {
+                                System.out.println("Geef je nieuwe vraag in voor het vak Frans.");
+                                nieuweVraag = input.next();
+                                objectVragen.vragenFrans.add(nieuweVraag);
+                                System.out.println("Geef het antwoord bij deze vraag.");
+                                nieuwAntwoord = input.next();
+                                objectVragen.antwoordenFrans.add(nieuwAntwoord);
+                                System.out.println("Wil je nog een vraag ingeven voor het vak Frans? (J/N)");
+                                Doorgaan = input.next();
+                            }while(Doorgaan.equals("J"));
+                            break;
+                        case 2:
+                            //Programmeren invoeren
 
+                            break;
+                        case 3:
+                            //Statistiek Toevoegen
 
+                            break;
+                        default:
+                            //StandaardCase
+
+                            break;
+                    }
 
                     break;
                 case 2:
@@ -53,6 +88,7 @@ public class Opstartscherm {
                     System.out.println("\t2.Test afnemen");
             }
         }while( i != 1);
-
+        System.out.println(objectVragen.vragenFrans);
+        System.out.println(objectVragen.antwoordenFrans);
     }
 }
