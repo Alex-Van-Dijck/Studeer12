@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Opstartscherm {
     public static void main(String[] args) {
+
+       //Declaratie
         Vragen objectVragen = new Vragen();
         Random rand = new Random();
         String naamGebruiker;
@@ -11,6 +13,8 @@ public class Opstartscherm {
         int punten = 0;
         int aantalVragenGesteld = 0;
         Scanner input = new Scanner(System.in);
+
+        //Welkomstmenu
         System.out.print("Geef je naam: ");
         naamGebruiker = input.nextLine();
         System.out.println("Welkom " + naamGebruiker);
