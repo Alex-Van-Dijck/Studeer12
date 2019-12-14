@@ -17,7 +17,7 @@ public class Vragen {
         int random2 = rand.nextInt(100) + 1;
         int random3 = rand.nextInt(100) + 1;
         int hoogste = Math.max(random1, Math.max(random2, random3));
-        vragenStatistiek.add("Welk getal is hoger? " + random1 + " of " + random2 + "?" );
+        vragenStatistiek.add("Welk getal is hoger? " + random1 + ",  " + random2 +  " of " + random3 + "?" );
         antwoordenStatistiek.add(Integer.toString(hoogste));
     }
     private void maakMaximumvraag2() {
@@ -33,16 +33,14 @@ public class Vragen {
         int random1 = rand.nextInt(100) + 1;
         int random2 = rand.nextInt(100) + 1;
         int random3 = rand.nextInt(100) + 1;
-        double gemiddelde = (random1 + random2 + random3)/3;
-
+        double gemiddelde = (double)(random1 + random2 + random3)/3;
         vragenStatistiek.add("Wat is het gemiddelde van " + random1 + ", " + random2 + " en "  + random3 + "?" );
         antwoordenStatistiek.add(Double.toString(gemiddelde));
     }
     private void maakGemiddeldevraag2(){
         int random1 = rand.nextInt(100) + 1;
         int random2 = rand.nextInt(100) + 1;
-        double gemiddelde = (random1 + random2)/2;
-
+        double gemiddelde = (double)(random1 + random2)/2;
         vragenStatistiek.add("Wat is het gemiddelde van " + random1 + " en " + random2 + "?" );
         antwoordenStatistiek.add(Double.toString(gemiddelde));
     }

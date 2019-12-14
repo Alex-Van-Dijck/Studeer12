@@ -103,7 +103,6 @@ public class Opstartscherm {
                              break;
                          default:
                              //StandaardCase
-
                              break;
                      }
 
@@ -175,6 +174,9 @@ public class Opstartscherm {
                                      System.out.println(objectVragen.vragenStatistiek.get(random));
                                      System.out.println("(Poging: "+ l +")");
                                      System.out.println("-----------");
+                                     //TEST GEMIDDELDE
+                                     System.out.println(objectVragen.antwoordenStatistiek.get(random));
+                                     //TEST GEMIDDELDE STOP
                                      antwoord = input.next();
                                      if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
                                          l = 4;
