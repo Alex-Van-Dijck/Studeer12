@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Opstartscherm {
@@ -46,10 +47,12 @@ public class Opstartscherm {
                              //Frans invoeren
                              do {
                                  System.out.println("Geef je nieuwe vraag in voor het vak Frans.");
-                                 nieuweVraag = input.next();
+                                 //Fixen van nextlines
+                                 input.nextLine();
+                                 nieuweVraag = input.nextLine();
                                  objectVragen.vragenFrans.add(nieuweVraag);
                                  System.out.println("Geef het antwoord bij deze vraag.");
-                                 nieuwAntwoord = input.next();
+                                 nieuwAntwoord = input.nextLine();
                                  objectVragen.antwoordenFrans.add(nieuwAntwoord);
                                  System.out.println("Wil je nog een vraag ingeven voor het vak Frans? (J/N)");
                                  doorgaan = input.next();
@@ -129,7 +132,7 @@ public class Opstartscherm {
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenFrans.get(random));
                                      System.out.println("Poging: "+ l + ": " );
-                                     antwoord = input.next();
+                                     antwoord = input.nextLine();
                                      if (objectVragen.antwoordenFrans.get(random).equals(antwoord)) {
                                          l = 4;
                                          punten += 1;
@@ -140,7 +143,7 @@ public class Opstartscherm {
                                      }
                                  }
                              }
-                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
 
                              break;
                          case 2:
@@ -162,11 +165,10 @@ public class Opstartscherm {
                                      }
                                  }
                              }
-                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
                              break;
                          case 3:
                              //Vragen Statistiek
-
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenStatistiek.size());
@@ -174,9 +176,6 @@ public class Opstartscherm {
                                      System.out.println(objectVragen.vragenStatistiek.get(random));
                                      System.out.println("(Poging: "+ l +")");
                                      System.out.println("-----------");
-                                     //TEST GEMIDDELDE
-                                     System.out.println(objectVragen.antwoordenStatistiek.get(random));
-                                     //TEST GEMIDDELDE STOP
                                      antwoord = input.next();
                                      if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
                                          l = 4;
@@ -187,7 +186,7 @@ public class Opstartscherm {
                                      }
                                  }
                              }
-                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
