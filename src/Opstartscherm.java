@@ -98,51 +98,63 @@ public class Opstartscherm {
                          case 1:
                              //Vragen Frans
 
-                             for( int k = 0 ; k < aantalVragen ; k++){
-                                 aantalVragenGesteld +=1;
+                             for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
+                                 aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenFrans.size());
-                                 System.out.println(objectVragen.vragenFrans.get(random));
-                                 antwoord = input.next();
-                                 if(objectVragen.antwoordenFrans.get(random).equals(antwoord)){
-                                     punten += 1;
-                                     System.out.println("Correct!");
-                                 }else{
-                                     System.out.println("Jammer, dat is fout.");
+                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                     System.out.println(objectVragen.vragenFrans.get(random));
+                                     antwoord = input.next();
+                                     if (objectVragen.antwoordenFrans.get(random).equals(antwoord)) {
+                                         l = 3;
+                                         punten += 1;
+                                         System.out.println("Correct!");
+                                     } else {
+                                         System.out.println("Jammer, dat is fout.");
+                                     }
                                  }
                              }
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
 
                              break;
                          case 2:
                              //Vragen Programmeren
 
-                             for( int k = 0 ; k < aantalVragen ; k++){
-                                 aantalVragenGesteld +=1;
+                             for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
+                                 aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
-                                 System.out.println(objectVragen.vragenProgrammeren.get(random));
-                                 antwoord = input.next();
-                                 if(objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)){
-                                     punten += 1;
-                                     System.out.println("Correct!");
-                                 }else{
-                                     System.out.println("Jammer, dat is fout.");
+                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                     System.out.println(objectVragen.vragenProgrammeren.get(random));
+                                     antwoord = input.next();
+                                     if (objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)) {
+                                         l = 3;
+                                         punten += 1;
+                                         System.out.println("Correct!");
+                                     } else {
+                                         System.out.println("Jammer, dat is fout.");
+                                     }
                                  }
                              }
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
                              break;
                          case 3:
                              //Vragen Statistiek
 
-                             for( int k = 0 ; k < aantalVragen ; k++){
-                                 aantalVragenGesteld +=1;
+                             for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
+                                 aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenStatistiek.size());
-                                 System.out.println(objectVragen.vragenStatistiek.get(random));
-                                 antwoord = input.next();
-                                 if(objectVragen.antwoordenStatistiek.get(random).equals(antwoord)){
-                                     punten += 1;
-                                     System.out.println("Correct!");
-                                 }else{
-                                     System.out.println("Jammer, dat is fout.");
+                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                     System.out.println(objectVragen.vragenStatistiek.get(random));
+                                     antwoord = input.next();
+                                     if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
+                                         l = 3;
+                                         punten += 1;
+                                         System.out.println("Correct!");
+                                     } else {
+                                         System.out.println("Jammer, dat is fout.");
+                                     }
                                  }
                              }
+                             System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
@@ -152,7 +164,6 @@ public class Opstartscherm {
                      //Afsluiten
                      j++;
                      i++;
-                     System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld);
                      break;
                  default:
                      System.out.println("Ongeldige invoer, het getal kan enkel 1, 2 of 3 zijn.");
