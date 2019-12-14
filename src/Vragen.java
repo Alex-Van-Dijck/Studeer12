@@ -30,17 +30,17 @@ public class Vragen {
     }
         //Automatische gemiddeldevraag
         private void maakGemiddeldevraag3(){
-        double random1 = rand.nextInt(100) + 1;
-        double random2 = rand.nextInt(100) + 1;
-        double random3 = rand.nextInt(100) + 1;
+        int random1 = rand.nextInt(100) + 1;
+        int random2 = rand.nextInt(100) + 1;
+        int random3 = rand.nextInt(100) + 1;
         double gemiddelde = (random1 + random2 + random3)/3;
 
         vragenStatistiek.add("Wat is het gemiddelde van " + random1 + ", " + random2 + " en "  + random3 + "?" );
         antwoordenStatistiek.add(Double.toString(gemiddelde));
     }
     private void maakGemiddeldevraag2(){
-        double random1 = rand.nextInt(100) + 1;
-        double random2 = rand.nextInt(100) + 1;
+        int random1 = rand.nextInt(100) + 1;
+        int random2 = rand.nextInt(100) + 1;
         double gemiddelde = (random1 + random2)/2;
 
         vragenStatistiek.add("Wat is het gemiddelde van " + random1 + " en " + random2 + "?" );
@@ -49,22 +49,24 @@ public class Vragen {
 
 
     //Random vraag selector
-    public void maakVraag(){
-        int random = rand.nextInt(4) + 1;
+    public void maakVraag(int aantalVragen) {
+        for (int m = 0; m < aantalVragen; m++) {
+            int random = rand.nextInt(4) + 1;
 
-        switch(random){
-            case 1:
-                maakGemiddeldevraag2();
-                break;
-            case 2:
-                maakGemiddeldevraag3();
-                break;
-            case 3:
-                maakMaximumvraag2();
-                break;
-            case 4:
-                maakMaximumvraag3();
-                break;
+            switch (random) {
+                case 1:
+                    maakGemiddeldevraag2();
+                    break;
+                case 2:
+                    maakGemiddeldevraag3();
+                    break;
+                case 3:
+                    maakMaximumvraag2();
+                    break;
+                case 4:
+                    maakMaximumvraag3();
+                    break;
+            }
         }
     }
 

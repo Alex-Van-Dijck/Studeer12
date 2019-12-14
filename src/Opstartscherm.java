@@ -7,9 +7,11 @@ public class Opstartscherm {
         Vragen objectVragen = new Vragen();
         Random rand = new Random();
         String naamGebruiker;
+        int aantalVragenGenereren;
         int keuze;
         int keuzevak;
         int j = 0;
+        int n = 0;
         int punten = 0;
         int aantalVragenGesteld = 0;
         Scanner input = new Scanner(System.in);
@@ -68,16 +70,36 @@ public class Opstartscherm {
                              break;
                          case 3:
                              //Statistiek Toevoegen
-                             do {
-                                 System.out.println("Geef je nieuwe vraag in voor het vak Statistiek.");
-                                 nieuweVraag = input.next();
-                                 objectVragen.vragenStatistiek.add(nieuweVraag);
-                                 System.out.println("Geef het antwoord bij deze vraag.");
-                                 nieuwAntwoord = input.next();
-                                 objectVragen.antwoordenStatistiek.add(nieuwAntwoord);
-                                 System.out.println("Wil je nog een vraag ingeven voor het vak Statistiek? (J/N)");
-                                 doorgaan = input.next();
-                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
+                            do {
+                                System.out.println("Wil je de vragen zelf ingeven of automatisch genereren?");
+                                System.out.println("\t1.Zelf ingeven");
+                                System.out.println("\t2.Genereren");
+                                keuze = input.nextInt();
+
+                                switch (keuze) {
+                                    case 1: //Manueel maken
+                                        n++;
+                                        do {
+                                            System.out.println("Geef je nieuwe vraag in voor het vak Statistiek.");
+                                            nieuweVraag = input.next();
+                                            objectVragen.vragenStatistiek.add(nieuweVraag);
+                                            System.out.println("Geef het antwoord bij deze vraag.");
+                                            nieuwAntwoord = input.next();
+                                            objectVragen.antwoordenStatistiek.add(nieuwAntwoord);
+                                            System.out.println("Wil je nog een vraag ingeven voor het vak Statistiek? (J/N)");
+                                            doorgaan = input.next();
+                                        } while (doorgaan.equals("J") || doorgaan.equals("j"));
+                                        break;
+                                    case 2: //Genereren
+                                        n++;
+                                        System.out.println("Hoeveel vragen wil je genereren?");
+                                        aantalVragenGenereren = input.nextInt();
+                                        objectVragen.maakVraag(aantalVragenGenereren);
+                                        break;
+                                    default:
+                                        System.out.println("Ongeldige invoer");
+                                }
+                            }while(n != 1);
                              break;
                          default:
                              //StandaardCase
@@ -105,15 +127,17 @@ public class Opstartscherm {
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenFrans.size());
-                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                 for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenFrans.get(random));
+                                     System.out.println("Poging: "+ l + ": " );
                                      antwoord = input.next();
                                      if (objectVragen.antwoordenFrans.get(random).equals(antwoord)) {
-                                         l = 3;
+                                         l = 4;
                                          punten += 1;
                                          System.out.println("Correct!");
                                      } else {
                                          System.out.println("Jammer, dat is fout.");
+                                         System.out.print("Poging: "+ l + ": " );
                                      }
                                  }
                              }
@@ -126,11 +150,12 @@ public class Opstartscherm {
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
-                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                 for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenProgrammeren.get(random));
+                                     System.out.print("Poging: "+ l + ": " );
                                      antwoord = input.next();
                                      if (objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)) {
-                                         l = 3;
+                                         l = 4;
                                          punten += 1;
                                          System.out.println("Correct!");
                                      } else {
@@ -146,11 +171,13 @@ public class Opstartscherm {
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenStatistiek.size());
-                                 for (int l = 0; l < 3; l++) { //Loop om de 3 kansen te geven
+                                 for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenStatistiek.get(random));
+                                     System.out.println("(Poging: "+ l +")");
+                                     System.out.println("-----------");
                                      antwoord = input.next();
                                      if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
-                                         l = 3;
+                                         l = 4;
                                          punten += 1;
                                          System.out.println("Correct!");
                                      } else {
