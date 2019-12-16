@@ -135,9 +135,14 @@ public class Opstartscherm {
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenFrans.size());
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
-                                     System.out.println(objectVragen.vragenFrans.get(random));
-                                     System.out.println("Poging: "+ l + ": " );
-                                     System.out.println("-----------");
+                                     if (aantalVragenGesteld != 1) {
+                                         System.out.println("Je tijdelijke score is " + punten + "/" + aantalVragen);
+                                         System.out.println("--------------------------------------");
+                                     }
+                                     System.out.println("Vraag " + aantalVragenGesteld +" (Poging: "+ l +")");
+                                     System.out.println("--------------------------------------");
+                                     System.out.println("Vraag: " + objectVragen.vragenFrans.get(random));
+                                     System.out.print("Antwoord: ");
                                      antwoord = input.nextLine();
                                      if (objectVragen.antwoordenFrans.get(random).equals(antwoord)) {
                                          l = 4;
@@ -159,9 +164,14 @@ public class Opstartscherm {
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
-                                     System.out.println(objectVragen.vragenProgrammeren.get(random));
-                                     System.out.println("Poging: "+ l + ": " );
-                                     System.out.println("-----------");
+                                     if (aantalVragenGesteld != 1) {
+                                         System.out.println("Je tijdelijke score is " + punten + "/" + aantalVragen);
+                                         System.out.println("--------------------------------------");
+                                     }
+                                     System.out.println("Vraag " + aantalVragenGesteld +" (Poging: "+ l +")");
+                                     System.out.println("--------------------------------------");
+                                     System.out.println("Vraag: " + objectVragen.vragenProgrammeren.get(random));
+                                     System.out.print("Antwoord: ");
                                      antwoord = input.nextLine();
                                      if (objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)) {
                                          l = 4;
@@ -173,6 +183,7 @@ public class Opstartscherm {
                                  }
                              }
                              System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
+                             aantalVragenGesteld = 0;
                              break;
                          case 3:
                              //Vragen Statistiek
@@ -181,10 +192,14 @@ public class Opstartscherm {
                                  int random = rand.nextInt(objectVragen.vragenStatistiek.size());
 
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
-                                     System.out.println(objectVragen.vragenStatistiek.get(random));
-                                     System.out.println("(Poging: "+ l +")");
-                                     System.out.println("-----------");
-                                     System.out.println(objectVragen.antwoordenStatistiek.get(random));
+                                     if (aantalVragenGesteld != 1) {
+                                         System.out.println("Je tijdelijke score is " + punten + "/" + aantalVragen);
+                                         System.out.println("--------------------------------------");
+                                     }
+                                     System.out.println("Vraag " + aantalVragenGesteld +" (Poging: "+ l +")");
+                                     System.out.println("--------------------------------------");
+                                     System.out.println("Vraag: " + objectVragen.vragenStatistiek.get(random));
+                                     System.out.print("Antwoord: ");
                                      antwoord = input.nextLine();
                                      if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
                                          l = 4;
