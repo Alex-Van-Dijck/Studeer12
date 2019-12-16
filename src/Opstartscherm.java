@@ -155,7 +155,8 @@ public class Opstartscherm {
                                  }
                              }
                              System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
-
+                             aantalVragenGesteld = 0;
+                             punten = 0;
                              break;
                          case 2:
                              //Vragen Programmeren
@@ -184,6 +185,7 @@ public class Opstartscherm {
                              }
                              System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
                              aantalVragenGesteld = 0;
+                             punten = 0;
                              break;
                          case 3:
                              //Vragen Statistiek
@@ -211,6 +213,8 @@ public class Opstartscherm {
                                  }
                              }
                              System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
+                             aantalVragenGesteld = 0;
+                             punten = 0;
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
