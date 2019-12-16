@@ -42,6 +42,7 @@ public class Opstartscherm {
                      System.out.println("\t1.Frans");
                      System.out.println("\t2.Programmeren");
                      System.out.println("\t3.Statistiek");
+                     System.out.println("\t4.Terug");
                      keuzevak = input.nextInt();
                      switch (keuzevak) {
                          case 1:
@@ -79,6 +80,7 @@ public class Opstartscherm {
                                 System.out.println("Wil je de vragen zelf ingeven of automatisch genereren?");
                                 System.out.println("\t1.Zelf ingeven");
                                 System.out.println("\t2.Genereren");
+                                System.out.println("\t3.Terug");
                                 keuze = input.nextInt();
                                 n = 0;
                                 switch (keuze) {
@@ -103,10 +105,16 @@ public class Opstartscherm {
                                         input.nextLine();
                                         objectVragen.maakVraag(aantalVragenGenereren);
                                         break;
+                                    case 3: //Terug
+                                        n++;
+                                        break;
                                     default:
                                         System.out.println("Ongeldige invoer");
                                 }
                             }while(n != 1);
+                             break;
+                         case 4:
+
                              break;
                          default:
                              //StandaardCase
@@ -123,13 +131,14 @@ public class Opstartscherm {
                      System.out.println("\t1.Frans");
                      System.out.println("\t2.Programmeren");
                      System.out.println("\t3.Statistiek");
+                     System.out.println("\t4.Terug");
                      keuzevak = input.nextInt();
-                     System.out.println("Hoeveel vragen wil je?");
-                     aantalVragen = input.nextInt();
-                     input.nextLine();
                      switch (keuzevak) {
                          case 1:
                              //Vragen Frans
+                             System.out.println("Hoeveel vragen wil je?");
+                             aantalVragen = input.nextInt();
+                             input.nextLine();
 
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
@@ -161,6 +170,10 @@ public class Opstartscherm {
                          case 2:
                              //Vragen Programmeren
 
+                             System.out.println("Hoeveel vragen wil je?");
+                             aantalVragen = input.nextInt();
+                             input.nextLine();
+
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
@@ -188,6 +201,11 @@ public class Opstartscherm {
                              punten = 0;
                              break;
                          case 3:
+
+                             System.out.println("Hoeveel vragen wil je?");
+                             aantalVragen = input.nextInt();
+                             input.nextLine();
+
                              //Vragen Statistiek
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
@@ -215,6 +233,9 @@ public class Opstartscherm {
                              System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
                              aantalVragenGesteld = 0;
                              punten = 0;
+                             break;
+                         case 4:
+
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
