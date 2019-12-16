@@ -159,7 +159,7 @@ public class Opstartscherm {
                                  int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenProgrammeren.get(random));
-                                     System.out.print("Poging: "+ l + ": " );
+                                     System.out.println("Poging: "+ l + ": " );
                                      System.out.println("-----------");
                                      antwoord = input.nextLine();
                                      if (objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)) {
