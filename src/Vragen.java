@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.*;
+import java.math.*;
 
 public class Vragen {
     Random rand = new Random();
@@ -58,10 +59,40 @@ public class Vragen {
         vragenStatistiek.add("Wat is het gemiddelde van " + random1 + " en " + random2 + "? (Afronden op 2 getallen na de komma)." );
         antwoordenStatistiek.add(toon3);
     }
+
+    public void maakStandaardDeviatieVraag(){
+        double sdv = 0;
+        int[] getallen = new int[]{1,2,3,4,5};
+
+        for( int l = 0 ; l < 5 ; l++){
+            getallen[l] = rand.nextInt(100) + 1;
+        }
+
+        Arrays.sort(getallen);
+        int som = 0;
+        int max = getallen[4];
+        int min = getallen[0];
+
+        for(int o=0; o<5; o++)
+        {
+            som += getallen[o];
+        }
+        double gemiddelde = som / 5;
+
+            for (int o=0; o<5;o++){
+                sdv += (getallen[o] - gemiddelde)*(getallen[o] - gemiddelde) / 5;
+            }
+        double sdv2 = Math.sqrt(sdv);
+        BigDecimal standardDeviatie = new BigDecimal(sdv2).setScale(2, RoundingMode.HALF_UP);
+        vragenStatistiek.add("Wat is de standaarddeviatie van: " + Arrays.toString(getallen) +" ? (Rond af op 2 getallen na de komma.)");
+        antwoordenStatistiek.add(standardDeviatie.toString());
+    }
+
+
     //Random vraag selector
     public void maakVraag(int aantalVragen) {
         for (int m = 0; m < aantalVragen; m++) {
-            int random = rand.nextInt(4) + 1;
+            int random = rand.nextInt(5) + 1;
 
             switch (random) {
                 case 1:
@@ -76,9 +107,13 @@ public class Vragen {
                 case 4:
                     maakMaximumvraag3();
                     break;
+                case 5:
+                    maakStandaardDeviatieVraag();
+                    break;
             }
         }
     }
+
 
 
 
