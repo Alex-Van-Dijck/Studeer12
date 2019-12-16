@@ -29,6 +29,7 @@ public class Opstartscherm {
         int i = 0;
          do {
              keuze = input.nextInt();
+             input.nextLine();
              switch (keuze) {
                  case 1:
                      i++;
@@ -42,6 +43,7 @@ public class Opstartscherm {
                      System.out.println("\t2.Programmeren");
                      System.out.println("\t3.Statistiek");
                      keuzevak = input.nextInt();
+                     input.nextLine();
                      switch (keuzevak) {
                          case 1:
                              //Frans invoeren
@@ -79,7 +81,7 @@ public class Opstartscherm {
                                 System.out.println("\t1.Zelf ingeven");
                                 System.out.println("\t2.Genereren");
                                 keuze = input.nextInt();
-
+                                input.nextLine();
                                 switch (keuze) {
                                     case 1: //Manueel maken
                                         n++;
@@ -99,6 +101,7 @@ public class Opstartscherm {
                                         n++;
                                         System.out.println("Hoeveel vragen wil je genereren?");
                                         aantalVragenGenereren = input.nextInt();
+                                        input.nextLine();
                                         objectVragen.maakVraag(aantalVragenGenereren);
                                         break;
                                     default:
@@ -124,6 +127,7 @@ public class Opstartscherm {
                      keuzevak = input.nextInt();
                      System.out.println("Hoeveel vragen wil je?");
                      aantalVragen = input.nextInt();
+                     input.nextLine();
                      switch (keuzevak) {
                          case 1:
                              //Vragen Frans
@@ -134,6 +138,7 @@ public class Opstartscherm {
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenFrans.get(random));
                                      System.out.println("Poging: "+ l + ": " );
+                                     System.out.println("-----------");
                                      antwoord = input.nextLine();
                                      if (objectVragen.antwoordenFrans.get(random).equals(antwoord)) {
                                          l = 4;
@@ -157,7 +162,8 @@ public class Opstartscherm {
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenProgrammeren.get(random));
                                      System.out.print("Poging: "+ l + ": " );
-                                     antwoord = input.next();
+                                     System.out.println("-----------");
+                                     antwoord = input.nextLine();
                                      if (objectVragen.antwoordenProgrammeren.get(random).equals(antwoord)) {
                                          l = 4;
                                          punten += 1;
@@ -174,11 +180,13 @@ public class Opstartscherm {
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
                                  int random = rand.nextInt(objectVragen.vragenStatistiek.size());
+
                                  for (int l = 1; l < 4; l++) { //Loop om de 3 kansen te geven
                                      System.out.println(objectVragen.vragenStatistiek.get(random));
                                      System.out.println("(Poging: "+ l +")");
                                      System.out.println("-----------");
-                                     antwoord = input.next();
+                                     System.out.println(objectVragen.antwoordenStatistiek.get(random));
+                                     antwoord = input.nextLine();
                                      if (objectVragen.antwoordenStatistiek.get(random).equals(antwoord)) {
                                          l = 4;
                                          punten += 1;
