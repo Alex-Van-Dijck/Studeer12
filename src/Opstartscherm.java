@@ -43,7 +43,6 @@ public class Opstartscherm {
                      System.out.println("\t2.Programmeren");
                      System.out.println("\t3.Statistiek");
                      keuzevak = input.nextInt();
-                     input.nextLine();
                      switch (keuzevak) {
                          case 1:
                              //Frans invoeren
@@ -81,7 +80,6 @@ public class Opstartscherm {
                                 System.out.println("\t1.Zelf ingeven");
                                 System.out.println("\t2.Genereren");
                                 keuze = input.nextInt();
-                                input.nextLine();
                                 switch (keuze) {
                                     case 1: //Manueel maken
                                         n++;
