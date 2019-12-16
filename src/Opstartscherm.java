@@ -62,10 +62,11 @@ public class Opstartscherm {
                              //Programmeren invoeren
                              do {
                                  System.out.println("Geef je nieuwe vraag in voor het vak Programmeren.");
-                                 nieuweVraag = input.next();
+                                 input.nextLine();
+                                 nieuweVraag = input.nextLine();
                                  objectVragen.vragenProgrammeren.add(nieuweVraag);
                                  System.out.println("Geef het antwoord bij deze vraag.");
-                                 nieuwAntwoord = input.next();
+                                 nieuwAntwoord = input.nextLine();
                                  objectVragen.antwoordenProgrammeren.add(nieuwAntwoord);
                                  System.out.println("Wil je nog een vraag ingeven voor het vak Programmeren? (J/N)");
                                  doorgaan = input.next();
@@ -84,10 +85,11 @@ public class Opstartscherm {
                                         n++;
                                         do {
                                             System.out.println("Geef je nieuwe vraag in voor het vak Statistiek.");
-                                            nieuweVraag = input.next();
+                                            input.nextLine();
+                                            nieuweVraag = input.nextLine();
                                             objectVragen.vragenStatistiek.add(nieuweVraag);
                                             System.out.println("Geef het antwoord bij deze vraag.");
-                                            nieuwAntwoord = input.next();
+                                            nieuwAntwoord = input.nextLine();
                                             objectVragen.antwoordenStatistiek.add(nieuwAntwoord);
                                             System.out.println("Wil je nog een vraag ingeven voor het vak Statistiek? (J/N)");
                                             doorgaan = input.next();
