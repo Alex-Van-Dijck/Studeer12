@@ -1,18 +1,18 @@
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class Opstartscherm {
+public class Spel {
     public static void main(String[] args) {
 
        //Declaratie
         Vragen objectVragen = new Vragen();
+        VraagSelector objectVraagSelector = new VraagSelector();
         Random rand = new Random();
         String naamGebruiker;
         int aantalVragenGenereren;
         int keuze;
         int keuzevak;
         int j = 0;
-        int n = 0;
         int punten = 0;
         int aantalVragenGesteld = 0;
         Scanner input = new Scanner(System.in);
@@ -47,74 +47,20 @@ public class Opstartscherm {
                      switch (keuzevak) {
                          case 1:
                              //Frans invoeren
-                             do {
-                                 System.out.println("Geef je nieuwe vraag in voor het vak Frans.");
-                                 //Fixen van nextlines
-                                 input.nextLine();
-                                 nieuweVraag = input.nextLine();
-                                 objectVragen.vragenFrans.add(nieuweVraag);
-                                 System.out.println("Geef het antwoord bij deze vraag.");
-                                 nieuwAntwoord = input.nextLine();
-                                 objectVragen.antwoordenFrans.add(nieuwAntwoord);
-                                 System.out.println("Wil je nog een vraag ingeven voor het vak Frans? (J/N)");
-                                 doorgaan = input.next();
-                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
+
+                             objectVragen.maakVraagFrans();
                              break;
                          case 2:
                              //Programmeren invoeren
-                             do {
-                                 System.out.println("Geef je nieuwe vraag in voor het vak Programmeren.");
-                                 input.nextLine();
-                                 nieuweVraag = input.nextLine();
-                                 objectVragen.vragenProgrammeren.add(nieuweVraag);
-                                 System.out.println("Geef het antwoord bij deze vraag.");
-                                 nieuwAntwoord = input.nextLine();
-                                 objectVragen.antwoordenProgrammeren.add(nieuwAntwoord);
-                                 System.out.println("Wil je nog een vraag ingeven voor het vak Programmeren? (J/N)");
-                                 doorgaan = input.next();
-                             } while (doorgaan.equals("J") || doorgaan.equals("j"));
+
+                             objectVragen.maakVraagProgrammeren();
                              break;
                          case 3:
                              //Statistiek Toevoegen
-                            do {
-                                System.out.println("Wil je de vragen zelf ingeven of automatisch genereren?");
-                                System.out.println("\t1.Zelf ingeven");
-                                System.out.println("\t2.Genereren");
-                                System.out.println("\t3.Terug");
-                                keuze = input.nextInt();
-                                n = 0;
-                                switch (keuze) {
-                                    case 1: //Manueel maken
-                                        n++;
-                                        do {
-                                            System.out.println("Geef je nieuwe vraag in voor het vak Statistiek.");
-                                            input.nextLine();
-                                            nieuweVraag = input.nextLine();
-                                            objectVragen.vragenStatistiek.add(nieuweVraag);
-                                            System.out.println("Geef het antwoord bij deze vraag.");
-                                            nieuwAntwoord = input.nextLine();
-                                            objectVragen.antwoordenStatistiek.add(nieuwAntwoord);
-                                            System.out.println("Wil je nog een vraag ingeven voor het vak Statistiek? (J/N)");
-                                            doorgaan = input.next();
-                                        } while (doorgaan.equals("J") || doorgaan.equals("j"));
-                                        break;
-                                    case 2: //Genereren
-                                        n++;
-                                        System.out.println("Hoeveel vragen wil je genereren?");
-                                        aantalVragenGenereren = input.nextInt();
-                                        input.nextLine();
-                                        objectVragen.maakVraag(aantalVragenGenereren);
-                                        break;
-                                    case 3: //Terug
-                                        n++;
-                                        break;
-                                    default:
-                                        System.out.println("Ongeldige invoer");
-                                }
-                            }while(n != 1);
+                                objectVragen.maakVraagStatistiek();
                              break;
                          case 4:
-
+                             //Doet niets, springt gewoon terug naar menu
                              break;
                          default:
                              //StandaardCase
@@ -235,7 +181,7 @@ public class Opstartscherm {
                              punten = 0;
                              break;
                          case 4:
-
+                            //doet niets, springt gewoon terug naar menu
                              break;
                          default:
                              System.out.println("Kies een geldige optie.");
