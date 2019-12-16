@@ -80,6 +80,7 @@ public class Opstartscherm {
                                 System.out.println("\t1.Zelf ingeven");
                                 System.out.println("\t2.Genereren");
                                 keuze = input.nextInt();
+                                n = 0;
                                 switch (keuze) {
                                     case 1: //Manueel maken
                                         n++;
