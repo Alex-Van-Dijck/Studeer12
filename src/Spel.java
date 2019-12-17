@@ -9,6 +9,7 @@ public class Spel {
         VraagSelector objectVraagSelector = new VraagSelector();
         Random rand = new Random();
         String naamGebruiker;
+        String keuzeVakVraag;
         int aantalVragenGenereren;
         int keuze;
         int keuzevak;
@@ -151,7 +152,9 @@ public class Spel {
                              System.out.println("Hoeveel vragen wil je?");
                              aantalVragen = input.nextInt();
                              input.nextLine();
-
+//                             System.out.println("Voor welk vak?");
+//                             keuzeVakVraag = input.nextLine();
+//                            objectVraagSelector.addVragen(aantalVragen,keuzeVakVraag);
                              //Vragen Statistiek
                              for( int k = 0 ; k < aantalVragen ; k++) { //Loop om het aantal vragen af te printen
                                  aantalVragenGesteld += 1;
