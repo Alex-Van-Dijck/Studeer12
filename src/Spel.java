@@ -48,7 +48,6 @@ public class Spel {
                      switch (keuzevak) {
                          case 1:
                              //Frans invoeren
-
                              objectVragen.maakVraagFrans();
                              break;
                          case 2:
@@ -58,7 +57,7 @@ public class Spel {
                              break;
                          case 3:
                              //Statistiek Toevoegen
-                                objectVragen.maakVraagStatistiek();
+                             objectVragen.maakVraagStatistiek();
                              break;
                          case 4:
                              //Doet niets, springt gewoon terug naar menu

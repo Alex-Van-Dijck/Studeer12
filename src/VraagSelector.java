@@ -28,7 +28,8 @@ public class VraagSelector {
 //            break;
 //            case "Statistiek":
 //                for(int m = 0; m < hoeveelheid; m++){
-//                int random = rand.nextInt(objectVragen.vragenStatistiek.size());
+//                int size = objectVragen.vragenStatistiek.size();
+//                int random = rand.nextInt(size);
 //                vragenTemp.add(objectVragen.vragenStatistiek.get(random));
 //                antwoordenTemp.add(objectVragen.antwoordenStatistiek.get(random));
 //            }
