@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Spel {
     public static void main(String[] args) {
-
+    try {
         //Declaratie
         Vragen objectVragen = new Vragen();
         VraagSelector objectVraagSelector = new VraagSelector();
@@ -18,13 +18,13 @@ public class Spel {
         Scanner input = new Scanner(System.in);
 
         //Welkomstmenu
-        try {
-            System.out.print("Geef je naam: ");
-            naamGebruiker = input.nextLine();
-            System.out.println("Welkom " + naamGebruiker);
-        } catch (InputMismatchException ex) {
-            System.out.println("Foutieve invoer!");
-        }
+//        try {
+        System.out.print("Geef je naam: ");
+        naamGebruiker = input.nextLine();
+        System.out.println("Welkom " + naamGebruiker);
+//        } catch (InputMismatchException ex) {
+//            System.out.println("Foutieve invoer!");
+//        }
         do {
             System.out.println("Wat wil je gaan doen?");
             System.out.println("\t1.Gegevens invoeren");
@@ -32,12 +32,12 @@ public class Spel {
             System.out.println("\t3.Afsluiten");
             int i = 0;
             do {
-                try {
-                    keuze = input.nextInt();
-                    input.nextLine();
-                } catch (InputMismatchException ex) {
-                    System.out.println("Foutieve invoer!");
-                }
+//                try {
+                keuze = input.nextInt();
+                input.nextLine();
+//                } catch (InputMismatchException ex) {
+//                    System.out.println("Foutieve invoer!");
+//                }
                 switch (keuze) {
                     case 1:
                         i++;
@@ -50,11 +50,11 @@ public class Spel {
                         System.out.println("\t1.Frans");
                         System.out.println("\t2.Programmeren");
                         System.out.println("\t3.Statistiek");
-                        try {
-                            keuzevak = input.nextInt();
-                        } catch (InputMismatchException ex) {
-                            System.out.println("Foutieve invoer!");
-                        }
+//                        try {
+                        keuzevak = input.nextInt();
+//                        } catch (InputMismatchException ex) {
+//                            System.out.println("Foutieve invoer!");
+//                        }
                         switch (keuzevak) {
                             case 1:
                                 //Frans invoeren
@@ -83,25 +83,25 @@ public class Spel {
                         boolean doorgaan2 = true;
                         int k = 0;
                         do {
-                            try {
-                                System.out.println("Voor welk vak wil je vragen beantwoorden?");
-                                System.out.println("\t1.Frans");
-                                System.out.println("\t2.Programmeren");
-                                System.out.println("\t3.Statistiek");
-                                System.out.println("\t4.Terug");
-                                keuzeVakVraag = input.nextInt();
-                                input.nextLine();
-                                System.out.println("Hoeveel vragen wil je?");
-                                aantalVragen = input.nextInt();
-                                input.nextLine();
-                                objectVraagSelector.addVragen(aantalVragen, keuzeVakVraag, objectVragen);
-                                System.out.println("Wil je nog vragen van een extra vak toevoegen? (J/N)");
+//                                try {
+                            System.out.println("Voor welk vak wil je vragen beantwoorden?");
+                            System.out.println("\t1.Frans");
+                            System.out.println("\t2.Programmeren");
+                            System.out.println("\t3.Statistiek");
+                            System.out.println("\t4.Terug");
+                            keuzeVakVraag = input.nextInt();
+                            input.nextLine();
+                            System.out.println("Hoeveel vragen wil je?");
+                            aantalVragen = input.nextInt();
+                            input.nextLine();
+                            objectVraagSelector.addVragen(aantalVragen, keuzeVakVraag, objectVragen);
+                            System.out.println("Wil je nog vragen van een extra vak toevoegen? (J/N)");
 
-                                keuzeDoorgaan = input.next();
-                                input.nextLine();
-                            } catch (InputMismatchException ex) {
-                                System.out.println("Foutieve invoer!");
-                            }
+                            keuzeDoorgaan = input.next();
+                            input.nextLine();
+//                            } catch (InputMismatchException ex) {
+//                                System.out.println("Foutieve invoer!");
+//                            }
                         } while (keuzeDoorgaan.equals("J") || keuzeDoorgaan.equals("j"));
                         objectVraagSelector.stelVragen(naamGebruiker);
                         break;
@@ -117,6 +117,8 @@ public class Spel {
                 }
             } while (i != 1);
         } while (j != 1);
-
+    }catch(InputMismatchException ex){
+        System.out.println("Foutieve invoer");
+    }
     }
 }
