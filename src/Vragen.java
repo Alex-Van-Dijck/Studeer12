@@ -1,6 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.*;
 import java.math.*;
+import javax.script.*;
 
 public class Vragen {
     Random rand = new Random();
@@ -11,6 +12,7 @@ public class Vragen {
     List<String> antwoordenFrans = new ArrayList<>();
     List<String> antwoordenStatistiek = new ArrayList<>();
     List<String> antwoordenProgrammeren = new ArrayList<>();
+    List<String> tekens = new ArrayList<String>(4);
 
     //Automatische vragen
         //Automatische Maximumvraag
@@ -88,11 +90,36 @@ public class Vragen {
         vragenStatistiek.add("Wat is de standaarddeviatie van: " + Arrays.toString(getallen) +" ? (Rond af op 2 getallen na de komma.)");
         antwoordenStatistiek.add(standardDeviatie.toString());
     }
+    public void bewerkingdrie() {
+        tekens.add("-");
+        tekens.add("+");
+        tekens.add("*");
+        tekens.add("/");
+        int random1 = rand.nextInt(100) + 1;
+        int random2 = rand.nextInt(100) + 1;
+        int random3 = rand.nextInt(100) + 1;
+        ScriptEngineManager mgr = new ScriptEngineManager();
+        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        String foo = random1 + tekens.get(rand.nextInt(4)) + random2 + tekens.get(rand.nextInt(4)) + random3;
+        vragenStatistiek.add(foo);
+
+        try {
+            double foo2 = Double.parseDouble(engine.eval(foo).toString())*100;
+            double rondaf = (double) Math.round(foo2);
+            String toon = String.valueOf(rondaf * 0.01);
+            // NUL NA DE KOMMA WEGWERKEN
+            String toon3 = toon.replaceAll("()\\.0+$|(\\..+?)0+$", "$2");
+
+            antwoordenStatistiek.add(engine.eval(toon3).toString());
+        } catch (ScriptException ex){
+
+        }
+    }
 
     //Random vraag selector
     public void maakVraag(int aantalVragen) {
         for (int m = 0; m < aantalVragen; m++) {
-            int random = rand.nextInt(5) + 1;
+            int random = rand.nextInt(6) + 1;
 
             switch (random) {
                 case 1:
@@ -109,6 +136,9 @@ public class Vragen {
                     break;
                 case 5:
                     maakStandaardDeviatieVraag();
+                    break;
+                case 6:
+                    bewerkingdrie();
                     break;
             }
         }
