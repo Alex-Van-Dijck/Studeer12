@@ -11,20 +11,17 @@ public class Spel {
         String naamGebruiker = "";
         String keuzeDoorgaan = "";
         int keuzeVakVraag;
-        int aantalVragenGenereren;
         int keuze = 0;
         int keuzevak = 0;
         int j = 0;
         Scanner input = new Scanner(System.in);
 
         //Welkomstmenu
-//        try {
+
         System.out.print("Geef je naam: ");
         naamGebruiker = input.nextLine();
         System.out.println("Welkom " + naamGebruiker);
-//        } catch (InputMismatchException ex) {
-//            System.out.println("Foutieve invoer!");
-//        }
+
         do {
             System.out.println("Wat wil je gaan doen?");
             System.out.println("\t1.Gegevens invoeren");
@@ -32,29 +29,21 @@ public class Spel {
             System.out.println("\t3.Afsluiten");
             int i = 0;
             do {
-//                try {
+
                 keuze = input.nextInt();
                 input.nextLine();
-//                } catch (InputMismatchException ex) {
-//                    System.out.println("Foutieve invoer!");
-//                }
+
                 switch (keuze) {
                     case 1:
                         i++;
-                        //Declaratie Invoer
-                        String nieuweVraag;
-                        String nieuwAntwoord;
-                        String doorgaan;
                         // GEGEVENS INVOEREN
                         System.out.println("Voor welk vak wens je gegevens in te geven?");
                         System.out.println("\t1.Frans");
                         System.out.println("\t2.Programmeren");
                         System.out.println("\t3.Statistiek");
-//                        try {
+
                         keuzevak = input.nextInt();
-//                        } catch (InputMismatchException ex) {
-//                            System.out.println("Foutieve invoer!");
-//                        }
+
                         switch (keuzevak) {
                             case 1:
                                 //Frans invoeren
@@ -79,11 +68,9 @@ public class Spel {
                         // TEST AFNEMEN
                         i++;
                         int aantalVragen;
-                        String antwoord;
-                        boolean doorgaan2 = true;
                         int k = 0;
                         do {
-//                                try {
+
                             System.out.println("Voor welk vak wil je vragen beantwoorden?");
                             System.out.println("\t1.Frans");
                             System.out.println("\t2.Programmeren");
@@ -99,9 +86,7 @@ public class Spel {
 
                             keuzeDoorgaan = input.next();
                             input.nextLine();
-//                            } catch (InputMismatchException ex) {
-//                                System.out.println("Foutieve invoer!");
-//                            }
+
                         } while (keuzeDoorgaan.equals("J") || keuzeDoorgaan.equals("j"));
                         objectVraagSelector.stelVragen(naamGebruiker);
                         break;
