@@ -9,48 +9,48 @@ public class VraagSelector {
     private int aantalVragenGesteld = 0;
     private int punten = 0;
 
-    public void addVragen(int hoeveelheid, int vak, Vragen objectVragen){
+    public void addVragen(int hoeveelheid, int vak, Vragen objectVragen) {
 
-        switch(vak){
+        switch (vak) {
             case 1:
-                for(int m = 0; m < hoeveelheid; m++){
+                for (int m = 0; m < hoeveelheid; m++) {
                     int random = rand.nextInt(objectVragen.vragenFrans.size());
                     String tempVraag = objectVragen.vragenFrans.get(random);
-                    if(vragenTemp.contains(tempVraag)){
+                    if (vragenTemp.contains(tempVraag)) {
                         m--;
-                    }else {
+                    } else {
                         vragenTemp.add(objectVragen.vragenFrans.get(random));
                         antwoordenTemp.add(objectVragen.antwoordenFrans.get(random));
                     }
                 }
-            break;
+                break;
             case 2:
-                for(int m = 0; m < hoeveelheid; m++){
-                int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
-                vragenTemp.add(objectVragen.vragenProgrammeren.get(random));
-                antwoordenTemp.add(objectVragen.antwoordenProgrammeren.get(random));
-            }
-            break;
-            case 3:
-                for(int m = 0; m < hoeveelheid; m++){
-                int size = objectVragen.vragenStatistiek.size();
-                int random = rand.nextInt(size);
-                String tempVraag = objectVragen.vragenStatistiek.get(random);
-                if(vragenTemp.contains(tempVraag)){
-                    m--;
-                }else {
-                    vragenTemp.add(objectVragen.vragenStatistiek.get(random));
-                    antwoordenTemp.add(objectVragen.antwoordenStatistiek.get(random));
+                for (int m = 0; m < hoeveelheid; m++) {
+                    int random = rand.nextInt(objectVragen.vragenProgrammeren.size());
+                    vragenTemp.add(objectVragen.vragenProgrammeren.get(random));
+                    antwoordenTemp.add(objectVragen.antwoordenProgrammeren.get(random));
                 }
-            }
-            break;
+                break;
+            case 3:
+                for (int m = 0; m < hoeveelheid; m++) {
+                    int size = objectVragen.vragenStatistiek.size();
+                    int random = rand.nextInt(size);
+                    String tempVraag = objectVragen.vragenStatistiek.get(random);
+                    if (vragenTemp.contains(tempVraag)) {
+                        m--;
+                    } else {
+                        vragenTemp.add(objectVragen.vragenStatistiek.get(random));
+                        antwoordenTemp.add(objectVragen.antwoordenStatistiek.get(random));
+                    }
+                }
+                break;
             default:
                 System.out.println("Ongeldig vak");
         }
 
     }
 
-    public void stelVragen(String naamGebruiker){
+    public void stelVragen(String naamGebruiker) {
         int size = vragenTemp.size();
         for (int k = 0; k < size; k++) { //Loop om het aantal vragen af te printen
             aantalVragenGesteld += 1;
@@ -72,7 +72,8 @@ public class VraagSelector {
                 } else {
                     System.out.println("Jammer, dat is fout.");
                 }
-            }vragenTemp.remove(random);
+            }
+            vragenTemp.remove(random);
             antwoordenTemp.remove(random);
         }
         System.out.println("Proficiat " + naamGebruiker + ", je haalde " + punten + "/" + aantalVragenGesteld + "!");
